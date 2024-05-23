@@ -1,7 +1,7 @@
 torch>=2.0.0
 scipy>=1.11.1
 Ninja==1.10.2
-gradio>=3.30.5
+gradio==3.50.2
 imageio-ffmpeg>=0.4.3
 huggingface_hub
 hf_transfer
