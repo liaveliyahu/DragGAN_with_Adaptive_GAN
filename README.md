@@ -36,7 +36,7 @@
     </a>
     <a href='https://vcai.mpi-inf.mpg.de/projects/DragGAN/'>
       <img src='https://img.shields.io/badge/DragGAN-Page-orange?style=for-the-badge&logo=Google%20chrome&logoColor=white&labelColor=D35400' alt='Project Page'></a>
-    <a href="https://colab.research.google.com/github/liaveliyahu/DragGAN_with_Adaptive_GAN/DragGan_AdaptiveGan_collab_gradio.ipynb"><img src="https://colab.research.google.com/assets/colab-badge.svg" alt="Open In Colab"></a>
+    <a href="https://colab.research.google.com/github/liaveliyahu/DragGAN_with_Adaptive_GAN/blob/main/DragGan_AdaptiveGan_collab_gradio.ipynb"><img src="https://colab.research.google.com/assets/colab-badge.svg" alt="Open In Colab"></a>
   </p>
 </p>
 
@@ -77,7 +77,7 @@ Need to fine tuning the training hyperparameters per class.
 
 <p align="center">
   <br>
-    <a href="https://colab.research.google.com/github/liaveliyahu/DragGAN_with_Adaptive_GAN/DragGan_AdaptiveGan_collab_gradio.ipynb"><img src="https://colab.research.google.com/assets/colab-badge.svg" alt="Open In Colab"></a>
+    <a href="https://colab.research.google.com/github/liaveliyahu/DragGAN_with_Adaptive_GAN/blob/main/DragGan_AdaptiveGan_collab_gradio.ipynb"><img src="https://colab.research.google.com/assets/colab-badge.svg" alt="Open In Colab"></a>
 </p>
 
 * Click on the Google Colab Link.
