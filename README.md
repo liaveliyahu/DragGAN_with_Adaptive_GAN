@@ -85,3 +85,4 @@ Need to fine tuning the training hyperparameters per class.
 * Run all lines.
 * Open the Gradio Application link.
 * Start to play with the tool :).
+* You can change number of iterations or/and learning rate at "viz/renderer.py" lines 269 & 272.
