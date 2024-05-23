@@ -36,7 +36,7 @@
     </a>
     <a href='https://vcai.mpi-inf.mpg.de/projects/DragGAN/'>
       <img src='https://img.shields.io/badge/DragGAN-Page-orange?style=for-the-badge&logo=Google%20chrome&logoColor=white&labelColor=D35400' alt='Project Page'></a>
-    <a href="https://colab.research.google.com/drive/1mey-IXPwQC_qSthI5hO-LTX7QL4ivtPh?usp=sharing"><img src="https://colab.research.google.com/assets/colab-badge.svg" alt="Open In Colab"></a>
+    <a href="https://colab.research.google.com/github/liaveliyahu/DragGAN_with_Adaptive_GAN/DragGan_AdaptiveGan_collab_gradio.ipynb"><img src="https://colab.research.google.com/assets/colab-badge.svg" alt="Open In Colab"></a>
   </p>
 </p>
 
@@ -72,3 +72,16 @@ Need to fine tuning the training hyperparameters per class.
 <div align="center">
   <img src="results.png", width="400">
 </div>
+
+## How to Run
+
+<p align="center">
+  <br>
+    <a href="https://colab.research.google.com/github/liaveliyahu/DragGAN_with_Adaptive_GAN/DragGan_AdaptiveGan_collab_gradio.ipynb"><img src="https://colab.research.google.com/assets/colab-badge.svg" alt="Open In Colab"></a>
+</p>
+
+* Click on the Google Colab Link.
+* Connect to GPU (T4).
+* Run all lines.
+* Open the Gradio Application link.
+* Start to play with the tool :).
