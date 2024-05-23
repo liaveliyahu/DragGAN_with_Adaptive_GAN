@@ -23,7 +23,15 @@ _plugin = None
 def _init():
     global _plugin
     if _plugin is None:
-        _plugin = custom_ops.get_plugin(
+
+        # sources=['filtered_lrelu.h', 'filtered_lrelu.cu', 'filtered_lrelu.cpp', 'filtered_lrelu_wr.cu', 'filtered_lrelu_rd.cu', 'filtered_lrelu_ns.cu']
+        # sources = [os.path.join(os.path.dirname(__file__), s) for s in sources]
+        # try:
+        #     _plugin = custom_ops.get_plugin('filtered_lrelu_plugin', sources=sources, extra_cuda_cflags=['--use_fast_math', '--allow-unsupported-compiler'])
+        # except:
+        #     warnings.warn('Failed to build CUDA kernels for filtered_lrelu_plugin. Falling back to slow reference implementation. Details:\n\n' + traceback.format_exc())
+
+        _plugin = custom_ops.get_plugin_v3(
             module_name='filtered_lrelu_plugin',
             sources=['filtered_lrelu.cpp', 'filtered_lrelu_wr.cu', 'filtered_lrelu_rd.cu', 'filtered_lrelu_ns.cu'],
             headers=['filtered_lrelu.h', 'filtered_lrelu.cu'],

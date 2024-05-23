@@ -1,4 +1,6 @@
-// Copyright (c) 2021, NVIDIA CORPORATION & AFFILIATES.  All rights reserved.
+// Copyright (c) SenseTime Research. All rights reserved.
+
+// Copyright (c) 2021, NVIDIA CORPORATION.  All rights reserved.
 //
 // NVIDIA CORPORATION and its licensors retain all intellectual property
 // and proprietary rights in and to this software, related documentation

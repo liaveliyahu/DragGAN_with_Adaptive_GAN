@@ -1,4 +1,6 @@
-# Copyright (c) 2021, NVIDIA CORPORATION & AFFILIATES.  All rights reserved.
+﻿# Copyright (c) SenseTime Research. All rights reserved.
+
+# Copyright (c) 2021, NVIDIA CORPORATION.  All rights reserved.
 #
 # NVIDIA CORPORATION and its licensors retain all intellectual property
 # and proprietary rights in and to this software, related documentation
@@ -64,15 +66,13 @@ except AttributeError:
     symbolic_assert = torch.Assert # 1.7.0
 
 #----------------------------------------------------------------------------
-# Context manager to temporarily suppress known warnings in torch.jit.trace().
-# Note: Cannot use catch_warnings because of https://bugs.python.org/issue29672
+# Context manager to suppress known warnings in torch.jit.trace().
 
-@contextlib.contextmanager
-def suppress_tracer_warnings():
-    flt = ('ignore', None, torch.jit.TracerWarning, None, 0)
-    warnings.filters.insert(0, flt)
-    yield
-    warnings.filters.remove(flt)
+class suppress_tracer_warnings(warnings.catch_warnings):
+    def __enter__(self):
+        super().__enter__()
+        warnings.simplefilter('ignore', category=torch.jit.TracerWarning)
+        return self
 
 #----------------------------------------------------------------------------
 # Assert that the shape of a tensor matches the given list of integers.
@@ -155,7 +155,7 @@ def named_params_and_buffers(module):
 def copy_params_and_buffers(src_module, dst_module, require_all=False):
     assert isinstance(src_module, torch.nn.Module)
     assert isinstance(dst_module, torch.nn.Module)
-    src_tensors = dict(named_params_and_buffers(src_module))
+    src_tensors = {name: tensor for name, tensor in named_params_and_buffers(src_module)}
     for name, tensor in named_params_and_buffers(dst_module):
         assert (name in src_tensors) or (not require_all)
         if name in src_tensors:
@@ -184,11 +184,9 @@ def check_ddp_consistency(module, ignore_regex=None):
         if ignore_regex is not None and re.fullmatch(ignore_regex, fullname):
             continue
         tensor = tensor.detach()
-        if tensor.is_floating_point():
-            tensor = nan_to_num(tensor)
         other = tensor.clone()
         torch.distributed.broadcast(tensor=other, src=0)
-        assert (tensor == other).all(), fullname
+        assert (nan_to_num(tensor) == nan_to_num(other)).all(), fullname
 
 #----------------------------------------------------------------------------
 # Print summary table of module hierarchy.
@@ -239,7 +237,7 @@ def print_module_summary(module, inputs, max_nesting=3, skip_redundant=True):
         name = '<top-level>' if e.mod is module else submodule_names[e.mod]
         param_size = sum(t.numel() for t in e.unique_params)
         buffer_size = sum(t.numel() for t in e.unique_buffers)
-        output_shapes = [str(list(t.shape)) for t in e.outputs]
+        output_shapes = [str(list(e.outputs[0].shape)) for t in e.outputs]
         output_dtypes = [str(t.dtype).split('.')[-1] for t in e.outputs]
         rows += [[
             name + (':0' if len(e.outputs) >= 2 else ''),
