@@ -1,6 +1,6 @@
 <p align="center">
 
-  <h1 align="center">Drag Your GAN with Addaptive GAN</h1>
+  <h1 align="center">Drag Your GAN with Addaptive GAN\Liav Eliyahu . Inbal Cohen</h1>
   <h2 align="center">All rights reserved to the original Drag Your GAN work</h2>
   <p align="center">
     <a href="https://arxiv.org/abs/2305.10973/"><strong>Paper link</strong></a>
@@ -55,13 +55,13 @@ Another example, when moving a person arm, it caused her hair to turn blonde.
 
 The soultion found for this problem is to use method based on Adaptive GAN (by Shady Abu Hussein). With this method, the generator trained on the input image before running the manipulation. After a few iterations of training the happens only once per image, can work with the tool as usual.
 
-<a href="https://arxiv.org/pdf/1906.05284.pdf/"><strong>Paper link</strong></a>
+<a href="https://arxiv.org/abs/1906.05284/"><strong>Image-Adaptive GAN based Reconstruction</strong></a>
 ·
 <a href="https://github.com/shadyabh/IAGAN/"><strong>Code link</strong></a>
-·
+
     
 <div align="center">
-  <img src="flow.png", width="400">
+  <img src="flow.png", width="800">
 </div>
 
 ## Results
@@ -70,7 +70,7 @@ With the results we can see a minor improvement of the problem, and see that the
 Need to fine tuning the training hyperparameters per class.
 
 <div align="center">
-  <img src="results.png", width="400">
+  <img src="results.png", width="800">
 </div>
 
 ## How to Run
