@@ -1,6 +1,6 @@
 <p align="center">
 
-  <h1 align="center">Drag Your GAN with Addaptive GAN\Liav Eliyahu . Inbal Cohen</h1>
+  <h1 align="center">Drag Your GAN with Addaptive GAN<br>Liav Eliyahu . Inbal Cohen</h1>
   <h2 align="center">All rights reserved to the original Drag Your GAN work</h2>
   <p align="center">
     <a href="https://arxiv.org/abs/2305.10973/"><strong>Paper link</strong></a>
