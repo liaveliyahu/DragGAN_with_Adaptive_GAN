@@ -86,3 +86,26 @@ Need to fine tuning the training hyperparameters per class.
 * Open the Gradio Application link.
 * Start to play with the tool :).
 * You can change number of iterations or/and learning rate at "viz/renderer.py" lines 269 & 272.
+
+# local run with docker
+
+* before you build the Docker - download pre-trained weights, simply run:
+
+
+
+```
+python scripts/download_model.py
+```
+Provided docker image is based on NGC PyTorch repository. To quickly try out visualizer in Docker, run the following:  
+
+```sh
+
+docker build . -t draggan:latest  
+docker run -p 7860:7860 -v "$PWD":/workspace/src -it draggan:latest bash
+# (Use GPU)if you want to utilize your Nvidia gpu to accelerate in docker, please add command tag `--gpus all`, like:
+#   docker run --gpus all  -p 7860:7860 -v "$PWD":/workspace/src -it draggan:latest bash
+
+cd src && python visualizer_drag_gradio.py --listen
+```
+Now you can open a shared link from Gradio (printed in the terminal console).   
+Beware the Docker image takes about 25GB of disk space!

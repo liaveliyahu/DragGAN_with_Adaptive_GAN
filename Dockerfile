@@ -25,4 +25,7 @@ RUN pip install --no-cache-dir -r requirements.txt
 WORKDIR /workspace
 
 RUN (printf '#!/bin/bash\nexec \"$@\"\n' >> /entry.sh) && chmod a+x /entry.sh
+
 ENTRYPOINT ["/entry.sh"]
+WORKDIR /workspace/src
+
