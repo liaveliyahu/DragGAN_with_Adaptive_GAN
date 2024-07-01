@@ -50,20 +50,20 @@ def add_watermark_np(input_image_array, watermark_text="AI Generated"):
     image = Image.fromarray(np.uint8(input_image_array)).convert("RGBA")
 
     # Initialize text image
-    txt = Image.new('RGBA', image.size, (255, 255, 255, 0))
-    font = ImageFont.truetype('arial.ttf', round(25/512*image.size[0]))
-    d = ImageDraw.Draw(txt)
+   # txt = Image.new('RGBA', image.size, (255, 255, 255, 0))
+   # font = ImageFont.truetype('arial.ttf', round(25/512*image.size[0]))
+   # d = ImageDraw.Draw(txt)
 
-    text_width, text_height = font.getsize(watermark_text)
-    text_position = (image.size[0] - text_width - 10, image.size[1] - text_height - 10)
-    text_color = (255, 255, 255, 128)  # white color with the alpha channel set to semi-transparent
+   # text_width, text_height = font.getsize(watermark_text)
+   # text_position = (image.size[0] - text_width - 10, image.size[1] - text_height - 10)
+   # text_color = (255, 255, 255, 128)  # white color with the alpha channel set to semi-transparent
 
-    # Draw the text onto the text canvas
-    d.text(text_position, watermark_text, font=font, fill=text_color)
+   # # Draw the text onto the text canvas
+   # d.text(text_position, watermark_text, font=font, fill=text_color)
 
     # Combine the image with the watermark
-    watermarked = Image.alpha_composite(image, txt)
-    watermarked_array = np.array(watermarked)
+    #watermarked = Image.alpha_composite(image, txt)
+    watermarked_array = np.array(image)
     return watermarked_array
 
 #----------------------------------------------------------------------------
@@ -118,7 +118,7 @@ class Renderer:
             self._end_event.record(torch.cuda.current_stream(self._device))
         if 'image' in res:
             res.image = self.to_cpu(res.image).detach().numpy()
-            res.image = add_watermark_np(res.image, 'AI Generated')
+#            res.image = add_watermark_np(res.image, 'AI Generated')
         if 'stats' in res:
             res.stats = self.to_cpu(res.stats).detach().numpy()
         if 'error' in res:
